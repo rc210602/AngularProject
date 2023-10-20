@@ -1,0 +1,21 @@
+.gridArea {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows:  auto auto;
+    grid-template-areas:
+      "listArea"
+      "inputArea";
+    gap: 10px;
+    position: relative;
+    height: 400px;
+  }
+  
+  
+    .common {background-color: grey; border: thick solid black; padding: 10px; margin: 10px; }
+    .common2 {background-color:slategray; border: thick solid black; padding: 10px; margin: 10px; }
+    .listArea {grid-area: listArea;}
+    .inputArea {grid-area: inputArea;}
+    .max{color: wheat; font-size: large;}
+    .hc{text-align: center;}
+    .neither{color: gray;text-align: center;}
+

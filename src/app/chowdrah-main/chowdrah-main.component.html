@@ -1,0 +1,66 @@
+<section class="gridArea">
+    <div class="listArea common" [ngStyle]="{textAlign: 'center'}">
+        <h3>Eligibility Criteria</h3>
+      <p [ngStyle]="{color: 'white', fontStyle: 'italic'}">Enter your age to see if eligible to work: {{chowdrahAge}}</p>
+      <label>
+        <input [(ngModel)] = "chowdrahAge">
+      </label>
+      <p *ngIf="(chowdrahAge ) >= chowdrahMin && (chowdrahAge)<= chowdrahMax;  else noCampus"  
+      [ngClass]="{min: (chowdrahMin) >=25,max: (chowdrahMax ) <= 65}">
+        You are qualified to work!<br><br>
+        <img src="assets/images/photo.jpg" width="130px">
+      </p>
+      </div>
+      <div>
+     <ng-template #noCampus>
+        <p>not eligible to work <br> For any query contact : {{chowdrahMain.email}} | {{chowdrahMain.fname}} {{chowdrahMain.lname}}</p>
+        <img src="assets/images/cross.jpg" width="100px">
+      </ng-template>
+  </div>
+</section>
+<hr>
+<section class="gridArea">
+    <div class="listArea common2" [ngStyle]="{textAlign: 'center'}">
+        <h3>User Details</h3>
+      <p [ngStyle]="{color: 'white', fontStyle: 'italic'}">Enter home country: {{chowdrahCountry}}</p>
+      <label>
+        <input [(ngModel)] = "chowdrahCountry">
+      </label>
+
+      <div *ngIf="(chowdrahCountry | lowercase) === 'india'; else otherCountry "[ngStyle]="{backgroundColor: backgroundColor(), color: textColor(), fontStyle: textStyle(),
+        textDecoration: textDecoration()}"
+      [ngClass]="{hc: (chowdrahCountry | lowercase) === 'india'}">
+        <h4>
+            <label>Full Name : {{chowdrahMain.fname | uppercase}} {{chowdrahMain.lname | uppercase}}</label>
+        </h4>
+        <p>
+            <label>Sheridan ID: {{chowdrahMain.snumber}}</label>
+        </p>
+        <p>
+            <label>Sheridan Username: {{chowdrahMain.username}}</label>
+        </p>
+        <p>
+            <label>Sheridan Email: {{chowdrahMain.email}}</label>
+        </p>
+        </div>
+        <ng-template #otherCountry>
+           <div [ngClass]="{neither: (chowdrahCountry | lowercase) !='india'}" [ngStyle]="{backgroundColor: backgroundColor(), color: textColor(), fontStyle: textStyle()
+        , textDecoration: textDecoration()}">
+            <h4>
+                <label>Full Name : {{chowdrahMain.fname | uppercase}} {{chowdrahMain.lname | uppercase}}</label>
+            </h4>
+            <p>
+                <label>Sheridan ID: {{chowdrahMain.snumber}}</label>
+            </p>
+            <p>
+                <label>Sheridan Username: {{chowdrahMain.username}}</label>
+            </p>
+            <p>
+                <label>Sheridan Email: {{chowdrahMain.email}}</label>
+            </p>
+            </div>
+        </ng-template>
+      </div>
+</section>
+<hr>
+  
